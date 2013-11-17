@@ -1,0 +1,176 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads= "http://schemas.android.com/apk/lib/com.google.ads"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainBg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context=".MainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/mainMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentTop="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wordpress Web Address :"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="12"
+                android:text=""
+                android:hint="http://myblog.wordpress.com"
+                android:paddingTop="10dp" >
+
+                <requestFocus />
+            </EditText>
+            
+            <TextView
+                android:id="@+id/textView1a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="*Not all the blogs are supported."
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="10dp"/>
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="loadURLBtn"
+                android:text="Start New Blog" />
+            
+            <Button
+                android:id="@+id/button1a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="loadOldURLBtn"
+                android:text="Continue From Previous" />
+        </LinearLayout>
+
+    </RelativeLayout>    
+    
+    <RelativeLayout
+        android:id="@+id/loadBoard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="50dp"
+        android:visibility="invisible"
+        android:layout_alignParentTop="true" >
+
+        <!--  <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="80dp" >-->
+	        <LinearLayout
+	            android:id="@+id/loadPosts"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:layout_alignParentBottom="true"
+	            android:layout_alignParentLeft="true"
+	            android:layout_alignParentRight="true"
+	            android:layout_alignParentTop="true"
+	            android:layout_marginBottom="40dp"
+	            android:orientation="vertical" >
+	        </LinearLayout>
+        <!-- </ScrollView> -->
+
+        <Button
+            android:id="@+id/button2"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:onClick="newBlogBtn"
+            android:text="+ New Blog" />
+
+        <Button
+            android:id="@+id/button3"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/button4"
+            android:onClick="prevURLBtn"
+            android:text="Previous" />
+
+        <Button
+            android:id="@+id/button4"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:onClick="nextURLBtn"
+            android:text="Next" />
+        
+    </RelativeLayout>  
+    
+    <RelativeLayout
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:visibility="invisible"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentTop="true" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Connecting to server..."
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+    </RelativeLayout>
+    
+    <com.google.ads.AdView 
+	        android:id="@+id/adView" 
+	        android:layout_width="wrap_content" 
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true" 
+	        android:layout_alignParentBottom="true" 
+	        ads:adSize="SMART_BANNER" 
+	        ads:adUnitId="a1527398855ce75" 
+	        ads:loadAdOnCreate="true" > 
+	    </com.google.ads.AdView> 
+    
+</RelativeLayout>
